@@ -28,7 +28,7 @@ public class RssPersonFormatter extends AbstractRssFeedView {
 	@Override
 	protected List<Item> buildFeedItems(Map<String, Object> model, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		Person person = (Person) model.get("user");
+		List<Person> persons = (List<Person>) model.get("users");
 
 		List<Item> itemContainer = new ArrayList<>();
 		Item item = new Item();
@@ -39,7 +39,7 @@ public class RssPersonFormatter extends AbstractRssFeedView {
 
 		Content content = new Content();
 		content.setType("text/html");
-		content.setValue("<h4>" + person.getName() + "</h4>");
+		content.setValue("<h4>" + persons + "</h4>");
 
 		item.setContent(content);
 		itemContainer.add(item);
